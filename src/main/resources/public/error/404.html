@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 Error</title>
+</head>
+<body>
+<h1>Great, you broke it.</h1>
+<p> Troubleshoot:</p>
+<p>
+    port 8080 already in use? <br>
+
+    On MAC:<br>
+    lsof -n -i4TCP:8080<br>
+    kill -9 PID <br>
+
+    On PC:<br>
+    netstat -ano | findstr 8080 <br>
+    taskkill /F /PID 8080
+</p>
+
+</body>
+</html>
