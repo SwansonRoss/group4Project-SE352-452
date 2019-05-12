@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout | GUUCl</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>[GLOBAL HEADER GOES HERE]</h1>
+    </div>
+    <div class="body">
+        <div style="padding-bottom: 20px">
+            <h2><em>You're this close to flexing on everybody.</em></h2>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Check out form</h3>
+                <form class="needs-validation" id="checkout-form">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="cc-number">Credit card number</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid credit card number is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="border-bottom: 3px solid #0f0f0f; padding-bottom: 20px;">
+                        <div class="col-md-2 mb-3">
+                            <label for="cc-month">Mo</label>
+                            <input type="text" class="form-control" id="cc-month" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Month needed
+                            </div>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="fName">Yr</label>
+                            <input type="text" class="form-control" id="cc-year" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Year needed
+                            </div>
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label for="fName">Billing Zip</label>
+                            <input type="text" class="form-control" id="cc-zip" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid credit card number is required
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="fName">CCV</label>
+                            <input type="text" class="form-control" id="cc-ccv" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid credit card number is required
+                            </div>
+                        </div>
+                    </div>
+                    <h3 style="padding-top: 20px;">Shipping Info</h3>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="fName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                First name is required.
+                            </div>
+                        </div>
+                        <div class="col-md-7 mb-3">
+                            <label for="lName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Last name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="fName">Email Address</label>
+                            <input type="text" class="form-control" id="email" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Email is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="fName">Street Address</label>
+                            <input type="text" class="form-control" id="ship-street" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Street address is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="fName">City</label>
+                            <input type="text" class="form-control" id="ship-city" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                City is required.
+                            </div>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <label for="fName">State</label>
+                            <input type="text" class="form-control" id="ship-state" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                State is required.
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="fName">Zip</label>
+                            <input type="text" class="form-control" id="ship-zip" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Zip code is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding-bottom: 20px">
+                        <button style="background-color: #0f0f0f; border: #0f0f0f;" class="btn btn-primary btn-lg btn-block" type="submit">Submit.</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-4" style="border-left: 3px solid #0f0f0f">
+                <h3>Your cart</h3>
+                <h3>$87.50</h3>
+                <div class="cart-item">
+                    <h4>Addidas crewneck</h4>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <img width="100" src="http://3.bp.blogspot.com/-c_xcQb-uG44/VazuWruXvGI/AAAAAAAAB-I/MojGhTH4CvQ/s1600/AB9577_01_laydown.jpg"/>
+                        </div>
+                        <div class="col-md-4 mb-3" style="text-align: right;">
+                            <p>QTY: 1</p>
+                            <p>$75.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-section">
+                    <div style="border-bottom: 1px solid #3f3f3f">
+                        <div class="row">
+                            <div class="col-md-6" style="text-align: left">Addidas crewneck</div>
+                            <div class="col-md-4" style="text-align: right">$75.00</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" style="text-align: left">Tax - 10%</div>
+                            <div class="col-md-4" style="text-align: right">$7.50</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" style="text-align: left">Shipping</div>
+                            <div class="col-md-4" style="text-align: right">$5.00</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-md-6" style="text-align: left">subtotal</div><div class="col-md-4" style="text-align: right">$87.50</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>[GLOBAL FOOTER GOES HERE]</h1>
+    </div>
+</div>
+</body>
+</html>
