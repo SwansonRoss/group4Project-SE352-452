@@ -4,9 +4,13 @@ h1.blackLink {
     color: black;
 }
 
-/*a:link {*/
-    /*color: black;*/
-/*}*/
-/*a:visited{*/
-    /*color: black;*/
-/*}*/
+li.listNav {
+    float: left;
+    padding: 5px;
+
+}
+
+ul.ulistNav {
+    list-style-type: none;
+
+}
