@@ -14,13 +14,13 @@ import java.util.Date;
 // DTO
 @Data
 @Entity
-@Table(name = "account")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 
 public class Account implements Serializable {
+	private static final long serialVersionUID = 1315126800929728520L;
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountId;
 
@@ -44,4 +44,10 @@ public class Account implements Serializable {
     @Column()
     private String subscribe;
 
+    public Account(String firstName, String lastName, String email, String password){
+        this.firstName = firstName;
+        this.lastName  = lastName;
+        this.email     = email;
+        this.password  = password;
+    }
 }
