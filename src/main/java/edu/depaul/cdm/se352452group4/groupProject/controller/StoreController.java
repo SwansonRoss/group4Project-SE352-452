@@ -16,6 +16,54 @@ public class StoreController implements WebMvcConfigurer {
 
             return "home"; //give name of html file in templates to serve up
         }
+
+        @GetMapping("/")
+        public String homepageRoute(){
+            return "../static/index";
+        }
+
+        @GetMapping("/login")
+        public String loginRoute(){
+            return "../static/account/account";
+        }
+
+        @GetMapping("/sign-up")
+        public String registrationRoute(){
+            return "../static/account/register";
+        }
+
+        @GetMapping("/women")
+        public String womenRoute(){
+            return "../static/womens/womens";
+        }
+
+        @GetMapping("/men")
+        public String menRoute(){
+            return "../static/men/index";
+        }
+
+        @GetMapping("/accessories")
+        public String accessoriesRoute(){
+            return "../static/accessories/accessories";
+        }
+
+        @GetMapping("/sale")
+        public String saleRoute(){
+            return "../static/sale/sale";
+        }
+
+
+        @GetMapping("/checkout")
+        public String checkoutRoute(){
+
+            return  "checkout/index";
+        }
+
+        //TODO: make this only accessible for managers
+        @GetMapping("/manage-inventory")
+        public String managerRoute(){
+            return "manager/index";
+        }
     }
 
 
