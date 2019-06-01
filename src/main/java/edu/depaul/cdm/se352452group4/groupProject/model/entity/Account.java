@@ -15,7 +15,6 @@ import java.util.Date;
 @Data
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1315126800929728520L;
@@ -40,9 +39,6 @@ public class Account implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date accountCreated;
-
-    @Column()
-    private String subscribe;
 
     public Account(String firstName, String lastName, String email, String password){
         this.firstName = firstName;
