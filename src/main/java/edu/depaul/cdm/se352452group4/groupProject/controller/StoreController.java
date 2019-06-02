@@ -40,7 +40,7 @@ public class StoreController implements WebMvcConfigurer {
 
         @GetMapping("/men")
         public String menRoute(){
-            return "../static/men/index";
+            return "../static/men/mens-suits.html";
         }
 
         @GetMapping("/accessories")
