@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8"> 
     <title>Fresh Threads</title>
@@ -40,19 +40,7 @@
     <div style="margin-top: 80px"></div>
     
     <div class="container">
-      <h3>1. Black Men's Suit</h3>
-      <p>Price: $329.99</p>
-      <img src="img/black_suit.jpeg" alt="Black Suit">
-      <div>
-        <label>Size</label>
-        <select name="size">
-          <option value="XXL">XXL</option>
-          <option value="XL">XL</option>
-          <option value="L">L</option>
-        </select>
-        <button type="button">ADD TO CART</button>   
-      </div>
-      <br>
+      <div th:replace="fragments/item.html"></div>
 
       <h3>2. Light Grey Men's Suit</h3>
       <p>Price: $299.99</p>
