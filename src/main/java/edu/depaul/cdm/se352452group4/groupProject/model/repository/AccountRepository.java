@@ -10,5 +10,4 @@ import java.util.List;
 // Account Repo
 @Repository
 public interface AccountRepository extends CrudRepository <Account, Integer> {
-    List<Account> findByLastName(String lastName);
 }
