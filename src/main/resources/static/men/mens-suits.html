@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"> 
+    <title>Fresh Threads</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600"
+          rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+   
+  <body>
+    <header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Fresh Threads</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="mens-suits.html">Suits <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mens-shirts.html">Shirts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mens-pants.html">Pants</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div style="margin-top: 80px"></div>
+    
+    <div class="container">
+      <div th:replace="fragments/item.html"></div>
+
+      <h3>2. Light Grey Men's Suit</h3>
+      <p>Price: $299.99</p>
+      <img src="img/light_grey_suit.jpeg" alt="Light Grey Suit">
+      <div>
+        <label>Size</label>
+        <select name="size">
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+        </select>
+        <button type="button">ADD TO CART</button>
+      </div>
+      <br>    
+
+      <h3>3. Charcoal Grey Men's Suit</h3>
+      <p>Price: $299.99</p>
+      <img src="img/charcoal_grey_suit.jpeg" alt="Charcoal Grey Suit">
+      <div>
+        <label>Size</label>
+        <select name="size">
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+        </select>
+        <button type="button">ADD TO CART</button>
+      </div>
+      <br>    
+
+      <h3>4. Navy Blue Men's Suit</h3>
+      <p>Price: $329.99</p>
+      <img src="img/navy_blue_suit.jpeg" alt="Navy Blue Suit">
+      <div>
+        <label>Size</label>
+        <select name="size">
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+        </select>
+        <button type="button">ADD TO CART</button>
+      </div>
+      <br>    
+
+      <h3>5. Dark Brown Men's Suit</h3>
+      <p>Price: $299.99</p>
+      <img src="img/dark_brown_suit.jpeg" alt="Dark Brown Suit">
+      <div>
+        <label>Size</label>
+        <select name="size">
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+        </select>
+        <button type="button">ADD TO CART</button>
+      </div>
+      <br>    
+
+      <h3>6. True Blue Men's Suit</h3>
+      <p>Price: $299.99</p>
+      <img src="img/true_blue_suit.jpeg" alt="True Blue Suit">
+      <div>
+        <label>Size</label>
+        <select name="size">
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+        </select>
+        <button type="button">ADD TO CART</button>
+      </div>
+      <br>    
+
+      <h3>7. Tan/Khaki Men's Suit</h3>
+      <p>Price: $299.99</p>
+      <img src="img/tan_khaki_suit.jpeg" alt="Tan/Khaki Suit">
+      <div>
+        <label>Size</label>
+        <select name="size">
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+        </select>
+        <button type="button">ADD TO CART</button>
+      </div>
+      <br>    
+
+      <h3>8. White Men's Suit</h3>
+      <p>Price: $279.99</p>
+      <img src="img/white_suit.jpeg" alt="White Suit">
+      <div>
+        <label>Size</label>
+        <select name="size">
+          <option value="XXL">XXL</option>
+          <option value="XL">XL</option>
+          <option value="L">L</option>
+        </select>
+        <button type="button">ADD TO CART</button>
+      </div> 
+    </div>
+
+    <div style="margin-top: 30px"></div>  
+  </body>
+</html>
+
