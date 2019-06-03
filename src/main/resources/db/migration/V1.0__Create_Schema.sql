@@ -1,14 +1,13 @@
 -- CREATE DATABASE IF NOT EXISTS GUCCl;
 --
-CREATE TABLE IF NOT EXISTS account (
-  accountId Integer  AUTO_INCREMENT NOT NULL,
-  firstName VARCHAR(50) NOT NULL,
-  lastName VARCHAR(50) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  password VARCHAR(20) NOT NULL,
+CREATE TABLE account (
+  account_Id INT AUTO_INCREMENT,
+  firstName VARCHAR(50),
+  lastName VARCHAR(50),
+  email VARCHAR(255),
+  password VARCHAR(20),
   accountCreated TIMESTAMP default CURRENT_DATE,
-  PRIMARY KEY (accountID)
-
+  PRIMARY KEY (account_Id)
 );
 
 -- CREATE TABLE IF NOT EXISTS CustomerShipments (

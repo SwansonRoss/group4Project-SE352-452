@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/accounts-page")
+@RequestMapping(path = "/accounts")
 public class AccountController {
 
     @Autowired
@@ -19,20 +19,33 @@ public class AccountController {
 
     public AccountController(AccountRepository repo) { this.repo = repo; }
 
-    @GetMapping("/allAccounts")
+    @GetMapping
     public Iterable<Account> getAllAccounts(){
         System.out.println("all account ");
         return repo.findAll();
     }
 
-    @PostMapping("/createAccount")
+    @PostMapping("user/createAccount")
     public @Valid Account createAccount(@RequestBody Account account){
+
+        Account a = account;
+        a.setAccount_Id(99);
+        a.setFirstName("Bo");
+        a.setLastName("Jackson");
+        a.setEmail("bjackson@gmail.com");
+        a.setPassword("pw324");
         System.out.println("create account ");
-        return repo.save(account);
+        return repo.save(a);
     }
 
-    @GetMapping("/account/{accountId}")
+    @GetMapping("user/accountId/{accountId}")
     public Optional<Account> getAccountById (@PathVariable int accountId){
         return repo.findById(accountId);
+    }
+
+    @GetMapping("/email/{email}")
+    public Account getAccountByEmail (@PathVariable String email) {
+        if(!email.endsWith(".com")) { email += ".com";}
+        return repo.findByEmail(email);
     }
 }
