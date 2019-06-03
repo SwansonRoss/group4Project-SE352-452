@@ -23,16 +23,13 @@ public class Manager implements Serializable {
     @Size(max = 5)
     private String code;
 
-    @Column(name = "First Name")
-    private String f_name;
 
-    @Column(name = "Last Name")
-    private String l_name;
+    private String firstName;
 
-    @Column(name = "Email")
+    private String lastName;
+
     private String email;
 
-    @Column(name = "Password")
     private String password;
 
 }

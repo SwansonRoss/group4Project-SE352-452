@@ -1,6 +1,6 @@
 package edu.depaul.cdm.se352452group4.groupProject.controller;
 
-
+import edu.depaul.cdm.se352452group4.groupProject.model.entity.InventoryItems;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
