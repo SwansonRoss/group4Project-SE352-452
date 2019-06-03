@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>GUCCl Official Site | Explore the World of FreshThreads - </title>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+
+    <div class="container">
+        <div th:replace="fragments/header"></div>
+        <div class="body" align="center">
+            <!-- navigation bar -->
+            <div align="center">
+                <a><h1 class="blackLink" align="center" th:text="${pageTitle}"></h1> </a>
+                <a href="/"><button>Home</button></a>
+                <button th:text="${itemCategory1}"></button></a>
+                <button th:text="${itemCategory2}"></button></a>
+                <button th:text="${itemCategory3}"></button></a>
+                <br><br><br><br>
+            </div>
+
+            <p>Welcome to the place for affordable fashion. . .</p>
+
+            <div class="row" align="center">
+                <div th:replace="fragments/item"></div>
+                <div th:replace="fragments/item"></div>
+            </div>
+            <div class="row" align="center">
+                <div th:replace="fragments/item"></div>
+                <div th:replace="fragments/item"></div>
+            </div>
+            <div class="row" align="center">
+                <div th:replace="fragments/item"></div>
+                <div th:replace="fragments/item"></div>
+            </div>
+        </div>
+
+
+
+
+<!--        <span>-->
+<!--<img src="blackShirt.png" alt="Black Gucci Shirt" width="230" height="172">-->
+<!--</span>-->
+<!--        <span>-->
+<!--<img src="whiteShirt.png" alt="White Gucci Shirt" width="230" height="172">-->
+<!--</span>-->
+<!--        <span>-->
+<!--<img src="funPrint.png" alt="Fun Gucci Shirt" width="230" height="172">-->
+<!--</span>-->
+<!--        <span>-->
+<!--<img src="whiteHeals.png" alt="White Gucci Heals" width="230" height="172">-->
+<!--</span>-->
+
+    </div>
+
+
+    </body>
+</html>
+
