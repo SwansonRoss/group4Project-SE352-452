@@ -1,13 +1,13 @@
 
 <div class="store-item">
-    <h4 th:text="itemName">${itemName}</h4>
+    <h4 th:text="${item.getName()}"></h4>
     <div class="row">
         <div class="col-md-6 mb-3">
-            <img width="250" src="http://3.bp.blogspot.com/-c_xcQb-uG44/VazuWruXvGI/AAAAAAAAB-I/MojGhTH4CvQ/s1600/AB9577_01_laydown.jpg"/>
+            <img width="250" th:src="${item.getImagePath()}"/>
         </div>
         <div class="col-md-4 mb-3" style="text-align: right;">
-            <p>${item.price}</p>
-            <p>${item.quantity}</p>
+            <p th:text="${item.getPrice()}"></p>
+            <p th:text="${item.getDescription()}"></p>
             <select name="size">
                 <option value="XXL">XXL</option>
                 <option value="XL">XL</option>
