@@ -15,16 +15,14 @@ public class Account implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int account_Id;
 
+	@Column(name = "FIRSTNAME")
     private String firstName;
-
+    @Column(name = "LASTNAME")
     private String lastName;
 
     private String email;
 
     private String password;
-
-    @Temporal(TemporalType.DATE)
-    private Date accountCreated;
 
 //    public Account(Integer id, String firstName, String lastName, String email, String password){
 //        this.account_Id = id;
