@@ -12,6 +12,7 @@ import java.util.ArrayList;
 @Controller
 public class StoreController implements WebMvcConfigurer {
 
+    //Dummy store items class for testing purposes -- will remove once this info can be pulled in from persistence layer
     public class storeItem{
         private double price;
         private String name;
@@ -59,6 +60,7 @@ public class StoreController implements WebMvcConfigurer {
     };
 
 
+        //Dummy store items for testing purposes
     storeItem mensItem = new storeItem(75.00, "Addidas Pullover", "A very nice sweatshirt", "http://3.bp.blogspot.com/-c_xcQb-uG44/VazuWruXvGI/AAAAAAAAB-I/MojGhTH4CvQ/s1600/AB9577_01_laydown.jpg");
     storeItem womensItem = new storeItem(495.00,"Gucci Shirt, white","It's a Gucci shirt. You know you want this Gucci shirt","https://images.neimanmarcus.com/ca/5/product_assets/T/Q/1/P/Z/NMTQ1PZ_mz.jpg");
     storeItem accessoriesItem = new storeItem(395.00,"Nike Air Fear of God","Nice shoes","https://stockx.imgix.net/Nike-Air-Fear-Of-God-Strap-Light-Bone-Product.jpg");
@@ -117,6 +119,7 @@ public class StoreController implements WebMvcConfigurer {
 //            model.addAttribute("itemDescription", item.getName());
 //            model.addAttribute("imagePath", item.getImagePath());
 
+            //Array list built to test iterables in thymeleaf
             ArrayList<storeItem> itemArrayList = new ArrayList<>();
             itemArrayList.add(mensItem);
             itemArrayList.add(accessoriesItem);
