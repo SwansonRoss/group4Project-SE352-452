@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import java.util.ArrayList;
+
 
 @Controller
 public class StoreController implements WebMvcConfigurer {
@@ -54,13 +56,13 @@ public class StoreController implements WebMvcConfigurer {
         public void setImagePath(String imagePath) {
             this.imagePath = imagePath;
         }
-    }
+    };
+
 
     storeItem mensItem = new storeItem(75.00, "Addidas Pullover", "A very nice sweatshirt", "http://3.bp.blogspot.com/-c_xcQb-uG44/VazuWruXvGI/AAAAAAAAB-I/MojGhTH4CvQ/s1600/AB9577_01_laydown.jpg");
     storeItem womensItem = new storeItem(495.00,"Gucci Shirt, white","It's a Gucci shirt. You know you want this Gucci shirt","https://images.neimanmarcus.com/ca/5/product_assets/T/Q/1/P/Z/NMTQ1PZ_mz.jpg");
     storeItem accessoriesItem = new storeItem(395.00,"Nike Air Fear of God","Nice shoes","https://stockx.imgix.net/Nike-Air-Fear-Of-God-Strap-Light-Bone-Product.jpg");
     storeItem saleItem = new storeItem(25.00, "Pink Hoodie","Don't miss this sweet deal","https://lp2.hm.com/hmgoepprod?set=source[/16/cb/16cb1b9d193f4a95c267444a265b7efa33f56495.jpg],origin[dam],category[men_hoodiessweatshirts],type[DESCRIPTIVESTILLLIFE],res[s],hmver[1]&call=url[file:/product/main]");
-
 
 
 
@@ -96,7 +98,7 @@ public class StoreController implements WebMvcConfigurer {
             model.addAttribute("itemCategory2", "Shirts");
             model.addAttribute("itemCategory3", "Pants");
 
-            model.addAttribute("item", womensItem);
+            model.addAttribute("items", womensItem);
 
             return "shopping-page/index";
         }
@@ -115,7 +117,12 @@ public class StoreController implements WebMvcConfigurer {
 //            model.addAttribute("itemDescription", item.getName());
 //            model.addAttribute("imagePath", item.getImagePath());
 
-            model.addAttribute("item", mensItem);
+            ArrayList<storeItem> itemArrayList = new ArrayList<>();
+            itemArrayList.add(mensItem);
+            itemArrayList.add(accessoriesItem);
+            itemArrayList.add(saleItem);
+
+            model.addAttribute("items", itemArrayList);
 
 
             return "shopping-page/index";
@@ -129,7 +136,11 @@ public class StoreController implements WebMvcConfigurer {
             model.addAttribute("itemCategory2", "Shoes");
             model.addAttribute("itemCategory3", "Belts");
 
-            model.addAttribute("item", accessoriesItem);
+            ArrayList<storeItem> itemArrayList = new ArrayList<>();
+            itemArrayList.add(accessoriesItem);
+            itemArrayList.add(saleItem);
+
+            model.addAttribute("items", itemArrayList);
 
             return "shopping-page/index";
         }
@@ -142,7 +153,12 @@ public class StoreController implements WebMvcConfigurer {
             model.addAttribute("itemCategory2", "Shoes");
             model.addAttribute("itemCategory3", "Belts");
 
-            model.addAttribute("item", saleItem);
+            ArrayList<storeItem> itemArrayList = new ArrayList<>();
+            itemArrayList.add(saleItem);
+            itemArrayList.add(mensItem);
+            itemArrayList.add(saleItem);
+
+            model.addAttribute("items", itemArrayList);
 
             return "shopping-page/index";
         }
