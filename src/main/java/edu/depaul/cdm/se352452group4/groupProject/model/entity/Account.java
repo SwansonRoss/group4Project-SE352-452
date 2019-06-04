@@ -12,11 +12,12 @@ import java.util.Date;
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1315126800929728520L;
 
-	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int account_Id;
 
 	@Column(name = "FIRSTNAME")
     private String firstName;
+
     @Column(name = "LASTNAME")
     private String lastName;
 
