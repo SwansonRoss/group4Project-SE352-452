@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="../css/custom.css">
 </head>
 <body>
-<div style="padding: 20px">
-    <a href="../index.html"> <h1 class="blackLink" align="center">FreshThreads</h1> </a>
-</div>
+<div class="container">
+    <div th:replace="fragments/header"></div>
+    <div style="padding: 20px">
+        <a href="../index.html"> <h1 class="blackLink" align="center">FreshThreads</h1> </a>
+    </div>
 <form class="container" >
+
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -23,6 +26,6 @@
     <button type="submit" class="btn btn-info">Login</button>
     <button type="submit" class="btn btn-info">Register</button>
 </form>
-
+</div>
 </body>
 </html>
