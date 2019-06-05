@@ -14,7 +14,6 @@ import java.util.Date;
 // DTO
 @Data
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1315126800929728520L;
@@ -22,21 +21,15 @@ public class Account implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int accountId;
 
-    @Column(nullable = false)
-    @NotBlank
     private String firstName;
 
-    @Column(nullable = false)
     private String lastName;
 
-    @Column()
     private String email;
 
-    @Column(nullable = false)
     private String password;
 
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
     private Date accountCreated;
 
 //    public Account(String firstName, String lastName, String email, String password){
@@ -47,55 +40,4 @@ public class Account implements Serializable {
 //    }
 
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public int getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getAccountCreated() {
-        return accountCreated;
-    }
-
-    public void setAccountCreated(Date accountCreated) {
-        this.accountCreated = accountCreated;
-    }
 }
