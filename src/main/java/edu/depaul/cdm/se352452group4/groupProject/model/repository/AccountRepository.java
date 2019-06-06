@@ -10,5 +10,5 @@ import java.util.List;
 // Account Repo
 @Repository
 public interface AccountRepository extends CrudRepository <Account, Integer> {
-
+    Account findByEmail(String email);
 }

@@ -1,15 +1,9 @@
 package edu.depaul.cdm.se352452group4.groupProject.model.entity;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
-
 
 // DTO
 @Data
@@ -19,25 +13,23 @@ public class Account implements Serializable {
 	private static final long serialVersionUID = 1315126800929728520L;
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int accountId;
+    private int account_Id;
 
+	@Column(name = "FIRSTNAME")
     private String firstName;
 
+    @Column(name = "LASTNAME")
     private String lastName;
 
     private String email;
 
     private String password;
 
-    @Temporal(TemporalType.DATE)
-    private Date accountCreated;
-
-//    public Account(String firstName, String lastName, String email, String password){
+//    public Account(Integer id, String firstName, String lastName, String email, String password){
+//        this.account_Id = id;
 //        this.firstName = firstName;
 //        this.lastName  = lastName;
 //        this.email     = email;
 //        this.password  = password;
 //    }
-
-
 }
