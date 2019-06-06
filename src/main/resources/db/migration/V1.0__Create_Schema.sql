@@ -96,7 +96,7 @@ CREATE TABLE Vendor (
     PRIMARY KEY(vendor_ID)
 );
 
-CREATE TABLE Size(
+CREATE TABLE Size_Chart(
     size_ID VARCHAR2(3),
     size_name VARCHAR(20),
 

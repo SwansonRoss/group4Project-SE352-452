@@ -13,7 +13,17 @@ INSERT INTO Inventory_Type VALUES (4, 'dress' );
 
 /*hi*/
 
-INSERT INTO Inventory_Items VALUES (1, 'shirt' );
+INSERT INTO Size_Chart VALUES ('XS', 'extra small');
+INSERT INTO Size_Chart VALUES ('S', 'small');
+INSERT INTO Size_Chart VALUES ('M', 'medium');
+INSERT INTO Size_Chart VALUES ('L', 'large');
+INSERT INTO Size_Chart VALUES ('XL', 'extra large');
+INSERT INTO Size_Chart VALUES ('XXL', 'extra extra large');
+
+
+
+
+
 
 
 
