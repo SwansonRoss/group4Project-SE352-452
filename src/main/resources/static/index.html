@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>GUCCl Official Site | Explore the World of FreshThreads - </title>
@@ -9,23 +9,8 @@
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="index.html"> <h1 class="blackLink" align="center">FreshThreads</h1> </a>
-
-    <div class="container">
-    <ul class="ulistNav">
-        <li class="listNav"><a href="men/mens-suits.html"><button class="btn btn-info">MEN  </button></a></li>
-        <li class="listNav"><a href="womens/womens.html"><button class="btn btn-info">WOMEN</button></a></li>
-        <li class="listNav"><a href="accessories/accessories.html"><button class="btn btn-info">ACCESSORIES</button></a></li>
-        <li class="listNav"><a href="sale/sale.html"> <button class="btn btn-info">SALES</button></a></li>
-    </ul>
-        <ul class="ulistNav">
-            <li class="listNav"><a href="checkout/index.html">  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Checkout</button></a></li>
-            <li class="listNav"><a href="account/account.html"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button></a></li>
-            <li class="listNav"><a href="account/register.html"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button></a></li>
-        </ul>
-    </div>
-</nav>
+<div class="container">
+<div th:replace="fragments/header"></div>
 
 <br><br><br>
 <figure class="figure">
@@ -42,6 +27,6 @@
     <a href="men/mens-suits.html"><button> SHOP MEN </button></a>
     <a href="womens/womens.html"><button> SHOP WOMEN </button></a>
 </div>
-
+</div>
 </body>
 </html>

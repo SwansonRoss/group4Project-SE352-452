@@ -13,7 +13,7 @@ public class Transactions implements Serializable {
 
     @Id
     @GeneratedValue
-    private Integer transactionId; // PK.
+    private Long transactionId; // PK.
     private Double transactionsTotal; // small money
     private Integer totalItems;
 
