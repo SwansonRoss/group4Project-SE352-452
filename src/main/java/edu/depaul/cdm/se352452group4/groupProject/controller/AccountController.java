@@ -35,6 +35,19 @@ public class AccountController {
         return repo.findById(accountId);
     }
 
+
+    @PutMapping("user/accountId/{accountId}")
+    public Account changeAccountPassword (@PathVariable int accountId, String newPassword){
+        Account account = repo.findById(accountId).orElseThrow(
+                ()-> new IllegalArgumentException("Account ID: " + accountId + " does not exist")
+        );
+
+        if(account.getPassword() == newPassword) { throw new IllegalArgumentException("Must be a password!"); }
+        else account.setPassword(newPassword);
+
+        return account;
+    }
+
     @GetMapping("/email/{email}")
     public Account getAccountByEmail (@PathVariable String email) {
         if(!email.endsWith(".com")) { email += ".com";}
