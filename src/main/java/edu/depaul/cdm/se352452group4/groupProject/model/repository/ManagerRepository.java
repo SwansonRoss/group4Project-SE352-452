@@ -9,6 +9,6 @@ import java.util.List;
 
 // Manager Repo
 @Repository
-public interface ManagerRepository extends CrudRepository<Manager, Integer>{
-    List<Manager> findByLastName(String lastName);
+public interface ManagerRepository extends CrudRepository<Manager, Long>{
+   Manager findByEmail(String email);
 }

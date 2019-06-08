@@ -2,23 +2,30 @@ package edu.depaul.cdm.se352452group4.groupProject.model.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
 @Entity
+@Table(name = "Inventory_Items")
 public class InventoryItems implements Serializable {
+    private final long serialVersionUID = 2L;
 
-    @Id
-    @GeneratedValue
-    private Long itemsId;   // PK
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;   // PK
 
     private String size;    // FK
+
+    @Column(name = "item_type")
     private String itemType;    //FK
+
+    @Column(name = "image_id")
     private String imageId;     //FK
+
+    @Column(name = "inventory_category")
     private String inventoryCategory; //FK
+
     private Integer quantity;
+
     private Double price;
 }
