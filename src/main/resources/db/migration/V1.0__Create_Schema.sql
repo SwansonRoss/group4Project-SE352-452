@@ -40,6 +40,7 @@ CREATE TABLE Inventory_Items (
     inventoryCategory VARCHAR2(255), //FK
     quantity INTEGER,
     price DOUBLE,
+    itemName VARCHAR2(55)
 
     PRIMARY KEY (id)
 );
