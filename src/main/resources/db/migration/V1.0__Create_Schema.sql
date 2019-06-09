@@ -19,8 +19,7 @@ CREATE TABLE Customer_Shipments (
 
 CREATE TABLE Images (
     item_Id INTEGER, //FK
-    image BLOB
-
+    image BLOB,
 
     PRIMARY KEY (item_Id)
 );
@@ -40,7 +39,7 @@ CREATE TABLE Inventory_Items (
     inventoryCategory VARCHAR2(255), //FK
     quantity INTEGER,
     price DOUBLE,
-    itemName VARCHAR2(55)
+    itemName VARCHAR2(55),
 
     PRIMARY KEY (id)
 );
