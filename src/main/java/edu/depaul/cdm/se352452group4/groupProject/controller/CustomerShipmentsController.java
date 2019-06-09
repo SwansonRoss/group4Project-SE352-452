@@ -27,6 +27,7 @@ public class CustomerShipmentsController {
     public CustomerShipments createCustomerShipment(@RequestBody CustomerShipments cs) {
         return repo.save(cs);
     }
+
     @GetMapping("/{shippingId}")
     public Optional<CustomerShipments> getCustomerShippingId(@PathVariable long shippingId){
         return repo.findById(shippingId);

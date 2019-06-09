@@ -1,12 +1,19 @@
 package edu.depaul.cdm.se352452group4.groupProject.controller;
 
+import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.InventoryItems;
+import edu.depaul.cdm.se352452group4.groupProject.model.repository.AccountRepository;
+import edu.depaul.cdm.se352452group4.groupProject.model.repository.InventoryItemsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -71,6 +78,11 @@ public class StoreController implements WebMvcConfigurer {
     @Controller
     public class StartController{
 
+        private InventoryItemsRepository repo;
+
+        @Autowired
+        public StartController(InventoryItemsRepository repo) { this.repo = repo; }
+
         @GetMapping("/test-mapping") //Give URL to start mapping
         public String basicMapping(){
 
@@ -95,12 +107,14 @@ public class StoreController implements WebMvcConfigurer {
         @GetMapping("/women")
         public String womenRoute(Model model){
 
+            List<InventoryItems> womenList = repo.findByInventoryCategory("women");
+
             model.addAttribute("pageTitle", "Women's");
             model.addAttribute("itemCategory1", "Dresses");
             model.addAttribute("itemCategory2", "Shirts");
             model.addAttribute("itemCategory3", "Pants");
 
-            model.addAttribute("items", womensItem);
+            model.addAttribute("items", womenList);
 
             return "shopping-page/index";
         }
@@ -108,6 +122,7 @@ public class StoreController implements WebMvcConfigurer {
         @GetMapping("/men")
         public String menRoute(Model model){
 
+            List<InventoryItems> menList = repo.findByInventoryCategory("men");
 
             model.addAttribute("pageTitle", "Men's");
             model.addAttribute("itemCategory1", "Suits");
@@ -125,7 +140,7 @@ public class StoreController implements WebMvcConfigurer {
             itemArrayList.add(accessoriesItem);
             itemArrayList.add(saleItem);
 
-            model.addAttribute("items", itemArrayList);
+            model.addAttribute("items", menList);
 
 
             return "shopping-page/index";
@@ -133,6 +148,8 @@ public class StoreController implements WebMvcConfigurer {
 
         @GetMapping("/accessories")
         public String accessoriesRoute(Model model){
+
+            List<InventoryItems> accessoriesList = repo.findByInventoryCategory("accessories");
 
             model.addAttribute("pageTitle", "Accessories");
             model.addAttribute("itemCategory1", "Purses");
@@ -143,13 +160,15 @@ public class StoreController implements WebMvcConfigurer {
             itemArrayList.add(accessoriesItem);
             itemArrayList.add(saleItem);
 
-            model.addAttribute("items", itemArrayList);
+            model.addAttribute("items", accessoriesList);
 
             return "shopping-page/index";
         }
 
         @GetMapping("/sale")
         public String saleRoute(Model model){
+
+            List<InventoryItems> saleList = repo.findByInventoryCategory("sale");
 
             model.addAttribute("pageTitle", "Accessories");
             model.addAttribute("itemCategory1", "Purses");
@@ -161,7 +180,7 @@ public class StoreController implements WebMvcConfigurer {
             itemArrayList.add(mensItem);
             itemArrayList.add(saleItem);
 
-            model.addAttribute("items", itemArrayList);
+            model.addAttribute("items", saleList);
 
             return "shopping-page/index";
         }
