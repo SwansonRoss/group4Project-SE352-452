@@ -23,9 +23,9 @@ public class AccountController {
 
     @PostMapping("user/createAccount")
     public Account createAccount(@RequestBody Account account){
-        while(getAccountById(account.getAccount_Id()).isPresent()) {
-            account.setAccount_Id(account.getAccount_Id()+1);
-        }
+//        while(getAccountById(account.getAccount_Id()).isPresent()) {
+//            account.setAccount_Id(account.getAccount_Id()+1);
+//        }
 
         return repo.save(account);
     }
