@@ -28,12 +28,4 @@ public class InventoryItems implements Serializable {
     private Integer quantity;
 
     private Double price;
-
-    public void setPrice(double p) {
-        this.price = p;
-    }
-
-    public void setQuantity(int q) {
-        this.quantity = q;
-    }
 }
