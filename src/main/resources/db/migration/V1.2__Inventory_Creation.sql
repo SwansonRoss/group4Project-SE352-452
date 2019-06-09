@@ -20,6 +20,16 @@ INSERT INTO Size_Chart VALUES ('L', 'large');
 INSERT INTO Size_Chart VALUES ('XL', 'extra large');
 INSERT INTO Size_Chart VALUES ('XXL', 'extra extra large');
 
+/*hiiii*/
+
+
+
+/*hi*/
+
+INSERT INTO Size_Items VALUES (101, 'XL', 1, )
+
+
+
 
 
 
