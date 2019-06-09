@@ -23,9 +23,9 @@ public class AccountController {
 
     @PostMapping("user/createAccount")
     public Account createAccount(@RequestBody Account account){
-//        while(getAccountById(account.getAccount_Id()).isPresent()) {
-//            account.setAccount_Id(account.getAccount_Id()+1);
-//        }
+        while(getAccountById(account.getAccount_Id()).isPresent()) {
+            account.setAccount_Id(account.getAccount_Id()+1);
+        }
 
         return repo.save(account);
     }
@@ -33,6 +33,19 @@ public class AccountController {
     @GetMapping("user/accountId/{accountId}")
     public Optional<Account> getAccountById (@PathVariable int accountId){
         return repo.findById(accountId);
+    }
+
+
+    @PutMapping("user/accountId/{accountId}")
+    public Account changeAccountPassword (@PathVariable int accountId, String newPassword){
+        Account account = repo.findById(accountId).orElseThrow(
+                ()-> new IllegalArgumentException("Account ID: " + accountId + " does not exist")
+        );
+
+        if(account.getPassword() == newPassword) { throw new IllegalArgumentException("Must be a password!"); }
+        else account.setPassword(newPassword);
+
+        return account;
     }
 
     @GetMapping("/email/{email}")

@@ -3,13 +3,22 @@ package edu.depaul.cdm.se352452group4.groupProject.model.entity;
 import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 // DTO
 @Data
 @Entity
 
 public class Account implements Serializable {
+
+    // Constructor *NOT TESTED*
+    public Account(){}
+    public Account(String firstName, String lastName, String email, String password){
+        this.firstName = firstName;
+        this.lastName  = lastName;
+        this.email     = email;
+        this.password  = password;
+    }
+
 	private static final long serialVersionUID = 1315126800929728520L;
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +33,4 @@ public class Account implements Serializable {
     private String email;
 
     private String password;
-
-//    public Account(Integer id, String firstName, String lastName, String email, String password){
-//        this.account_Id = id;
-//        this.firstName = firstName;
-//        this.lastName  = lastName;
-//        this.email     = email;
-//        this.password  = password;
-//    }
 }
