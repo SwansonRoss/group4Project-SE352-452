@@ -33,7 +33,7 @@ CREATE TABLE Inventory_Category (
 );
 
 CREATE TABLE Inventory_Items (
-    items_Id INTEGER,            // PK
+    id LONG,            // PK
     size VARCHAR2(255),         // FK
     itemType VARCHAR2(255),     // FK
     image_Id VARCHAR2(255),      // FK
@@ -41,7 +41,7 @@ CREATE TABLE Inventory_Items (
     quantity INTEGER,
     price DOUBLE,
 
-    PRIMARY KEY (items_Id)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE Inventory_Type (
