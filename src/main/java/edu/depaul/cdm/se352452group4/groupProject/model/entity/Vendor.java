@@ -15,8 +15,7 @@ public class Vendor implements Serializable {
     
     private static final long serialVersionUID = 2L;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vendorID;
     
     private String country;

@@ -18,11 +18,10 @@ CREATE TABLE Customer_Shipments (
 );
 
 CREATE TABLE Images (
-    transaction_Id INTEGER, // PK, FK
     item_Id INTEGER, //FK
-    price_Purchased INTEGER,
+    image BLOB,
 
-    PRIMARY KEY (transaction_Id)
+    PRIMARY KEY (item_Id)
 );
 
 CREATE TABLE Inventory_Category (
@@ -40,6 +39,7 @@ CREATE TABLE Inventory_Items (
     inventoryCategory VARCHAR2(255), //FK
     quantity INTEGER,
     price DOUBLE,
+    itemName VARCHAR2(55),
 
     PRIMARY KEY (id)
 );
