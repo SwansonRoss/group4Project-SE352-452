@@ -5,6 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface VendorRepository extends CrudRepository<Vendor,Integer> {
-    List<Vendor> findByVendorID (Integer VendorId);
+public interface VendorRepository extends CrudRepository<Vendor,Long> {
+    Vendor findByCountry (String country);
+    Vendor findByState (String state);
+    Vendor findByCity (String city);
 }
