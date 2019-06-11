@@ -7,10 +7,12 @@ import edu.depaul.cdm.se352452group4.groupProject.model.repository.InventoryItem
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -118,6 +120,12 @@ public class StoreController implements WebMvcConfigurer {
 
             return "shopping-page/index";
         }
+        @PostMapping("/women")
+        public String addWomensToCart(HttpServletResponse response, HttpServletRequest request, @ModelAttribute("AddToCart") InventoryItems i){
+            Long id = i.getId();
+            updateCookies(response, request, id);
+            return "redirect:/women";
+        }
 
         @GetMapping("/men")
         public String menRoute(Model model){
@@ -129,27 +137,23 @@ public class StoreController implements WebMvcConfigurer {
             model.addAttribute("itemCategory2", "Shirts");
             model.addAttribute("itemCategory3", "Pants");
 
-//            model.addAttribute("itemName", item.getName());
-//            model.addAttribute("itemPrice", item.getPrice());
-//            model.addAttribute("itemDescription", item.getName());
-//            model.addAttribute("imagePath", item.getImagePath());
-
-            //Array list built to test iterables in thymeleaf
-            ArrayList<storeItem> itemArrayList = new ArrayList<>();
-            itemArrayList.add(mensItem);
-            itemArrayList.add(accessoriesItem);
-            itemArrayList.add(saleItem);
-
             model.addAttribute("items", menList);
 
 
             return "shopping-page/index";
         }
 
+        @PostMapping("/men")
+        public String addMensToCart(HttpServletResponse response, HttpServletRequest request, @ModelAttribute("AddToCart") InventoryItems i){
+            Long id = i.getId();
+            updateCookies(response, request, id);
+            return "redirect:/men";
+        }
+
         @GetMapping("/accessories")
         public String accessoriesRoute(Model model){
 
-            List<InventoryItems> accessoriesList = repo.findByInventoryCategory("accessories");
+            List<InventoryItems> accessoriesList = repo.findByInventoryCategory("accessory");
 
             model.addAttribute("pageTitle", "Accessories");
             model.addAttribute("itemCategory1", "Purses");
@@ -164,6 +168,12 @@ public class StoreController implements WebMvcConfigurer {
 
             return "shopping-page/index";
         }
+        @PostMapping("/accessories")
+        public String addAccessoriesToCart(HttpServletResponse response, HttpServletRequest request, @ModelAttribute("AddToCart") InventoryItems i){
+            Long id = i.getId();
+            updateCookies(response, request, id);
+            return "redirect:/accessories";
+        }
 
         @GetMapping("/sale")
         public String saleRoute(Model model){
@@ -174,15 +184,15 @@ public class StoreController implements WebMvcConfigurer {
             model.addAttribute("itemCategory1", "Purses");
             model.addAttribute("itemCategory2", "Shoes");
             model.addAttribute("itemCategory3", "Belts");
-
-            ArrayList<storeItem> itemArrayList = new ArrayList<>();
-            itemArrayList.add(saleItem);
-            itemArrayList.add(mensItem);
-            itemArrayList.add(saleItem);
-
             model.addAttribute("items", saleList);
 
             return "shopping-page/index";
+        }
+        @PostMapping("/sale")
+        public String addSaleToCart(HttpServletResponse response, HttpServletRequest request, @ModelAttribute("AddToCart") InventoryItems i){
+            Long id = i.getId();
+            updateCookies(response, request, id);
+            return "redirect:/sale";
         }
 
         @GetMapping("/checkout")
@@ -196,6 +206,37 @@ public class StoreController implements WebMvcConfigurer {
         public String managerRoute(){
             return "manager/index";
         }
+    }
+
+    private void updateCookies(HttpServletResponse response, HttpServletRequest request, Long id){
+        Cookie[] checkCookies = request.getCookies();
+        String cookieString = null;
+        if(checkCookies != null) {
+            for (Cookie c : checkCookies) {
+                //If "cart_items" cookie exists, append new itemId to the end.
+                if (c.getName().equals("cart_items")) {
+                    System.out.println(c.getValue());
+
+                    StringBuilder cookieBuilder = new StringBuilder();
+                    cookieBuilder.append(c.getValue());
+                    cookieBuilder.append(id);
+                    cookieBuilder.append("-");
+
+                    cookieString = cookieBuilder.toString();
+
+                }
+            }
+        }
+        else{
+            StringBuilder cookieBuilder = new StringBuilder();
+            cookieBuilder.append(id);
+            cookieBuilder.append("-");
+
+            cookieString = cookieBuilder.toString();
+        }
+        Cookie cartCookie = new Cookie("cart_items", cookieString);
+        //cartCookie.setMaxAge(172800);
+        response.addCookie(cartCookie);
     }
 
 
