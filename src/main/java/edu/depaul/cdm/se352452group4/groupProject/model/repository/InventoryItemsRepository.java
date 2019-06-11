@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface InventoryItemsRepository extends CrudRepository<InventoryItems, Long> {
 
-    Optional<InventoryItems> findById(Long aLong);
+    Optional<InventoryItems> findById(int aLong);
     List<InventoryItems> findByInventoryCategory(String category);
 }

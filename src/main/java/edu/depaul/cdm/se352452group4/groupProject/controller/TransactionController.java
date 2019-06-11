@@ -1,5 +1,6 @@
 package edu.depaul.cdm.se352452group4.groupProject.controller;
 
+import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.InventoryItems;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.Transactions;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.InventoryItemsRepository;
@@ -15,9 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.swing.text.html.Option;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Date;
 
 //@RestController
 //@RequestMapping(path = "/accounts")
@@ -52,6 +56,71 @@ public class TransactionController implements WebMvcConfigurer {
         return  "checkout/index";
     }
 
+    @PostMapping("/checkout")
+    public String processTransaction(HttpServletRequest request){
+        if (validateCard()) {
+            List<Long> itemIds = getShoppingCartIds(request);
+            Double subtotal = 0.0;
+            int quantity = 0;
+            if (itemIds == null) {
+                return null;
+            }
+
+            List<InventoryItems> cartItems = new ArrayList<>();
+            for (Long itemId : itemIds) {
+                InventoryItems item = IIrepo.findById(itemId).get();
+                item.setQuantity(item.getQuantity() - 1);
+                subtotal += item.getPrice();
+                cartItems.add(item);
+                quantity++;
+                IIrepo.save(item);
+
+            }
+            for (InventoryItems i : cartItems) {
+                System.out.println(i.getItemName());
+            }
+
+
+
+//            while (getTransactionsById(t.getTransaction_Id()).isPresent()) {
+//                t.setTransaction_Id(t.getTransaction_Id() + 1);
+//            }
+
+            int i = 0;
+
+            while(transRepo.findById(i).isPresent()){
+                i++;
+            }
+
+            Transactions t = new Transactions();
+
+            Date date = new Date();
+
+            t.setTransaction_Id(i);
+            t.setOrder_Date(date);
+            t.setTotal_Items(quantity);
+            t.setTransactions_Total(subtotal);
+
+            transRepo.save(t);
+            clearCart(request);
+
+            return "redirect:/confirmation";
+        }
+        return "redirect:/checkout";
+    }
+
+    @GetMapping("user/accountId/{accountId}")
+    public Optional<Transactions> getTransactionById (@PathVariable int accountId){
+
+        return transRepo.findById(accountId);
+    }
+
+
+    @GetMapping("/confirmation")
+    public String checkoutRoute(Model model){
+        return "confirmation/index";
+    }
+
     private List<Long> getShoppingCartIds(HttpServletRequest request){
         Cookie[] checkCookies = request.getCookies();
         List<Long> itemIds = new ArrayList<>();
@@ -60,7 +129,6 @@ public class TransactionController implements WebMvcConfigurer {
                 //If "cart_items" cookie exists, splits to create a list
                 if (c.getName().equals("cart_items")) {
                     String cartString = c.getValue();
-                    System.out.println(cartString);
                     String[] cartIds = cartString.split("-");
                     for(String cartId : cartIds){
                         itemIds.add(Long.parseLong(cartId));
@@ -70,6 +138,23 @@ public class TransactionController implements WebMvcConfigurer {
         }
         return itemIds;
 
+    }
+
+    private void clearCart(HttpServletRequest request){
+        Cookie[] checkCookies = request.getCookies();
+        List<Long> itemIds = new ArrayList<>();
+        if(checkCookies != null) {
+            for (Cookie c : checkCookies) {
+                //If "cart_items" cookie exists, splits to create a list
+                if (c.getName().equals("cart_items")) {
+                    Cookie blank = new Cookie("cart_items", "");
+                }
+            }
+        }
+    }
+
+    private boolean validateCard(){
+        return true;
     }
 
 
