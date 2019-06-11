@@ -1,28 +1,76 @@
 package edu.depaul.cdm.se352452group4.groupProject.controller;
 
-import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.InventoryItems;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.Transactions;
-import edu.depaul.cdm.se352452group4.groupProject.model.repository.AccountRepository;
+import edu.depaul.cdm.se352452group4.groupProject.model.repository.InventoryItemsRepository;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transaction;
+import javax.swing.text.html.Option;
+import java.sql.SQLDataException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
-@RestController
+//@RestController
 //@RequestMapping(path = "/accounts")
-public class TransactionController {
+@Controller
+public class TransactionController implements WebMvcConfigurer {
 
-    private TransactionsRepository repo;
+    private TransactionsRepository transRepo;
+    private InventoryItemsRepository IIrepo;
 
     @Autowired
-    public TransactionController(TransactionsRepository repo){this.repo = repo;}
+    public TransactionController(TransactionsRepository tRepo, InventoryItemsRepository iRepo){
+        this.transRepo = tRepo;
+        this.IIrepo =iRepo;
+    }
+
+    @GetMapping("/checkout")
+    public String checkoutRoute(Model model, HttpServletRequest request){
+        List<Long> itemIds = getShoppingCartIds(request);
+        Double subtotal = 0.0;
+        if(itemIds == null){return  "checkout/index";}
+
+        List<InventoryItems> cartItems = new ArrayList<>();
+        for(Long itemId : itemIds){
+            InventoryItems item = IIrepo.findById(itemId).get();
+            subtotal += item.getPrice();
+            cartItems.add(item);
+
+        }
+
+        model.addAttribute("subtotal", subtotal);
+        model.addAttribute("items", cartItems);
+        return  "checkout/index";
+    }
+
+    private List<Long> getShoppingCartIds(HttpServletRequest request){
+        Cookie[] checkCookies = request.getCookies();
+        List<Long> itemIds = new ArrayList<>();
+        if(checkCookies != null) {
+            for (Cookie c : checkCookies) {
+                //If "cart_items" cookie exists, splits to create a list
+                if (c.getName().equals("cart_items")) {
+                    String cartString = c.getValue();
+                    System.out.println(cartString);
+                    String[] cartIds = cartString.split("-");
+                    for(String cartId : cartIds){
+                        itemIds.add(Long.parseLong(cartId));
+                    }
+                }
+            }
+        }
+        return itemIds;
+
+    }
 
 
 //    public Transactions createTransaction(HttpServletResponse response, @RequestBody Transactions t){
@@ -39,7 +87,7 @@ public class TransactionController {
 
     @GetMapping("men/{tId}")
     public Optional<Transactions> getTransactionsById (@PathVariable Integer tId){
-        return repo.findById(tId);
+        return transRepo.findById(tId);
     }
 
 }
