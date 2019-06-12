@@ -4,6 +4,7 @@ package edu.depaul.cdm.se352452group4.groupProject.controller;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
@@ -22,7 +23,8 @@ public class AccountController {
     }
 
     @PostMapping("user/createAccount")
-    public Account createAccount(@RequestBody Account account){
+    public Account createAccount(@ModelAttribute Model model, Account account){
+        model.addAttribute("account", new Account());
         while(getAccountById(account.getAccount_Id()).isPresent()) {
             account.setAccount_Id(account.getAccount_Id()+1);
         }

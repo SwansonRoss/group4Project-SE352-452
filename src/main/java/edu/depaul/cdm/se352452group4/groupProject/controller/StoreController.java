@@ -1,10 +1,8 @@
 package edu.depaul.cdm.se352452group4.groupProject.controller;
 
-import edu.depaul.cdm.se352452group4.groupProject.model.entity.InventoryItems;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.ArrayList;
 
@@ -84,12 +82,12 @@ public class StoreController implements WebMvcConfigurer {
 
         @GetMapping("/login")
         public String loginRoute(){
-            return "../static/account/account";
+            return "account/loginForm";
         }
 
         @GetMapping("/sign-up")
         public String registrationRoute(){
-            return "../static/account/register";
+            return "account/registerForm";
         }
 
         @GetMapping("/women")

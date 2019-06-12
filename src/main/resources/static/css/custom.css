@@ -1,7 +1,10 @@
 
 h1.blackLink {
-
     color: black;
+}
+
+h1.center {
+    color: #1c7430;
 }
 
 li.listNav {
@@ -14,3 +17,5 @@ ul.ulistNav {
     list-style-type: none;
 
 }
+
+

@@ -1,13 +1,14 @@
 package edu.depaul.cdm.se352452group4.groupProject.model.entity;
 
 import lombok.Data;
+import org.springframework.stereotype.Service;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 // DTO
 @Data
 @Entity
-
 public class Account implements Serializable {
 
     // Constructor *NOT TESTED*
