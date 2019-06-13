@@ -7,10 +7,7 @@ import java.io.Serializable;
 // DTO
 @Data
 @Entity
-
 public class Account implements Serializable {
-
-    // Constructor *NOT TESTED*
     public Account(){}
     public Account(String firstName, String lastName, String email, String password){
         this.firstName = firstName;

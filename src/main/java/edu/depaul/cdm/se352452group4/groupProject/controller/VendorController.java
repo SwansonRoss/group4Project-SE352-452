@@ -19,8 +19,6 @@ public class VendorController {
     @Autowired
     private VendorRepository repo;
 
-
-
     @GetMapping
     public Iterable<Vendor> allVendors() {
         return repo.findAll();

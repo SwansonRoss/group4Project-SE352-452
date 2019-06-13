@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends CrudRepository <Account, Integer> {
     Account findByEmail(String email);
+    Account findByPassword(String password);
 }

@@ -30,4 +30,9 @@ public class InventoryItemsController {
             return repo.findById(id);
     }
 
+//    @GetMapping("/item_page")
+//    public InventoryItems findByItem (String itemName){
+//        return repo.findByItem(itemName);
+//    }
+
 }

@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface InventoryItemsRepository extends CrudRepository<InventoryItems, Long> {
 
     Optional<InventoryItems> findById(Long aLong);
+//    InventoryItems findByItem(String string);
 }

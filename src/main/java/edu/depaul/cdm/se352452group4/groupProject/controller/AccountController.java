@@ -4,11 +4,12 @@ package edu.depaul.cdm.se352452group4.groupProject.controller;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/accounts")
+@RequestMapping(path = "/account")
 public class AccountController {
 
     private AccountRepository repo;
@@ -21,13 +22,15 @@ public class AccountController {
         return repo.findAll();
     }
 
-    @PostMapping("user/createAccount")
-    public Account createAccount(@RequestBody Account account){
+    @PostMapping("/registerForm")
+    public String createAccount(@ModelAttribute Account account, Model model){
+        model.addAttribute("account", new Account());
         while(getAccountById(account.getAccount_Id()).isPresent()) {
             account.setAccount_Id(account.getAccount_Id()+1);
         }
 
-        return repo.save(account);
+        repo.save(account);
+        return "index";
     }
 
     @GetMapping("user/accountId/{accountId}")
@@ -48,10 +51,16 @@ public class AccountController {
         return account;
     }
 
-    @GetMapping("/email/{email}")
-    public Account getAccountByEmail (@PathVariable String email) {
-        if(!email.endsWith(".com")) { email += ".com";}
-        return repo.findByEmail(email);
+    @PostMapping("/loginForm")
+    public String login (String email, String password) {
+        Account a = new Account();
+        a.setEmail(email);
+        a.setPassword(password);
+
+        if(repo.findByEmail(a.getEmail()) == null || repo.findByPassword(a.getPassword()) == null) {
+            return "login failed";
+        }
+        return "login success!";
     }
 
     @GetMapping("/user/{accountId}/delete")
