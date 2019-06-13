@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/accounts")
+@RequestMapping(path = "/account")
 public class AccountController {
 
     private AccountRepository repo;
@@ -22,14 +22,15 @@ public class AccountController {
         return repo.findAll();
     }
 
-    @PostMapping("user/createAccount")
-    public Account createAccount(@ModelAttribute Model model, Account account){
+    @PostMapping("/registerForm")
+    public String createAccount(@ModelAttribute Account account, Model model){
         model.addAttribute("account", new Account());
         while(getAccountById(account.getAccount_Id()).isPresent()) {
             account.setAccount_Id(account.getAccount_Id()+1);
         }
 
-        return repo.save(account);
+        repo.save(account);
+        return "yeet";
     }
 
     @GetMapping("user/accountId/{accountId}")

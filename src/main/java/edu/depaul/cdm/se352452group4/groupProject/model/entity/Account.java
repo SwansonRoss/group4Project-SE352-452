@@ -1,8 +1,6 @@
 package edu.depaul.cdm.se352452group4.groupProject.model.entity;
 
 import lombok.Data;
-import org.springframework.stereotype.Service;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,8 +8,6 @@ import java.io.Serializable;
 @Data
 @Entity
 public class Account implements Serializable {
-
-    // Constructor *NOT TESTED*
     public Account(){}
     public Account(String firstName, String lastName, String email, String password){
         this.firstName = firstName;
