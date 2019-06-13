@@ -30,7 +30,7 @@ public class AccountController {
         }
 
         repo.save(account);
-        return "yeet";
+        return "index";
     }
 
     @GetMapping("user/accountId/{accountId}")
@@ -51,10 +51,16 @@ public class AccountController {
         return account;
     }
 
-    @GetMapping("/email/{email}")
-    public Account getAccountByEmail (@PathVariable String email) {
-        if(!email.endsWith(".com")) { email += ".com";}
-        return repo.findByEmail(email);
+    @PostMapping("/loginForm")
+    public String login (String email, String password) {
+        Account a = new Account();
+        a.setEmail(email);
+        a.setPassword(password);
+
+        if(repo.findByEmail(a.getEmail()) == null || repo.findByPassword(a.getPassword()) == null) {
+            return "login failed";
+        }
+        return "login success!";
     }
 
     @GetMapping("/user/{accountId}/delete")
