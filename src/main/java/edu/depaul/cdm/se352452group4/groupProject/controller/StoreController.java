@@ -175,9 +175,7 @@ public class StoreController implements WebMvcConfigurer {
         //TODO: make this only accessible for managers
         @GetMapping("/manage-inventory")
         public String managerRoute(){
-            return "manager/index";
+            return "manager/main";
         }
     }
-
-
 }

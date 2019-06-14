@@ -3,6 +3,7 @@ package edu.depaul.cdm.se352452group4.groupProject.controller;
 
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.AccountRepository;
+import edu.depaul.cdm.se352452group4.groupProject.model.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/account")
 public class AccountController {
+
+    @Autowired
+    ManagerRepository mr;
 
     private AccountRepository repo;
 
@@ -57,8 +61,16 @@ public class AccountController {
         a.setEmail(email);
         a.setPassword(password);
 
-        if(repo.findByEmail(a.getEmail()) == null || repo.findByPassword(a.getPassword()) == null) {
+        if(repo.findByEmail(a.getEmail()) == null && repo.findByPassword(a.getPassword()) == null) {
             return "login failed";
+        }
+
+        if(repo.findByEmail(a.getEmail()) == null && repo.findByPassword(a.getPassword()) == null) {
+            return "login failed";
+        }
+
+        if(mr.findByEmail(email) != null) {
+            return "/main";
         }
         return "login success!";
     }
