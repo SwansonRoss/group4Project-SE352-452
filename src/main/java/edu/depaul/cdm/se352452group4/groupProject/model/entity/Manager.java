@@ -25,5 +25,4 @@ public class Manager implements Serializable {
     private String email;
 
     private String password;
-
 }

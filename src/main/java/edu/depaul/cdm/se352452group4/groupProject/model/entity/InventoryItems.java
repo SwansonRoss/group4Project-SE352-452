@@ -28,4 +28,6 @@ public class InventoryItems implements Serializable {
     private Integer quantity;
 
     private Double price;
+
+    private String itemName;
 }
