@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Manager Dashboard</title>
+    </head>
+    <body>
+        <div class="container">
+            <div th:replace="/fragments/header"></div>
+
+            <div style="text-align: center; padding-top: 50px">
+                <div class="display-4" style="padding-bottom: 30px"> Hello Manager </div>
+                <a href="/update"><button class="btn btn-info">Update an item</button></a>
+                <a href="/add"><button class="btn btn-info">Add an item</button></a>
+
+                <div style="padding: 100px">
+                <a href="/"><button class="btn btn-info">Log out</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="fragments/footer"></div>
+    </body>
+</html>

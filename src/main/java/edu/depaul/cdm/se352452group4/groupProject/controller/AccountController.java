@@ -60,11 +60,6 @@ public class AccountController {
         return account;
     }
 
-    @GetMapping("/")
-    public String welcome() {
-        return "/manage";
-    }
-
     @PostMapping("/loginForm")
     public String login (String email, String password, HttpServletResponse response, HttpServletRequest request) throws IOException  {
         Account a = new Account();
@@ -77,15 +72,17 @@ public class AccountController {
         }
 
         if(repo.findByEmail(a.getEmail()) != null && repo.findByPassword(a.getPassword()) != null) {
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/success");
             return "found account";
         }
 
         if(repo.findByEmail(a.getEmail()) != null && repo.findByPassword(a.getPassword()) == null) {
+            response.sendRedirect(request.getContextPath() + "/fail");
             return "fail by 80";
         }
 
         if(repo.findByEmail(a.getEmail()) == null && repo.findByPassword(a.getPassword()) == null) {
+            response.sendRedirect(request.getContextPath() + "/fail");
             return "fail by 85";
         }
 

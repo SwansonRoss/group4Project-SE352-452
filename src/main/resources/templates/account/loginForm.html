@@ -6,9 +6,7 @@
 <body>
 <div class="container">
     <div th:replace="/fragments/header"></div>
-    <div style="padding: 20px">
-        <h1 class="blackLink" align="center">Login to your Account</h1>
-    </div>
+    <h1 class="blackLink" style="text-align: center; padding-top: 50px">Login to your Account</h1>
     <form class="container" th:action="@{/account/loginForm}" th:object="${account}" method="post">
 
         <div class="form-group">
