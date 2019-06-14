@@ -21,6 +21,7 @@ CREATE TABLE Images (
     item_Id INTEGER, //FK
     image BLOB,
 
+
     PRIMARY KEY (item_Id)
 );
 
@@ -94,4 +95,11 @@ CREATE TABLE Vendor (
     state VARCHAR2(255),
 
     PRIMARY KEY(vendor_ID)
+);
+
+CREATE TABLE Size_Chart(
+    size_ID VARCHAR2(3),
+    size_name VARCHAR(20),
+
+    PRIMARY KEY (size_ID)
 );

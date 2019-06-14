@@ -30,7 +30,8 @@ public class ManagerController {
     @PostMapping("manager/createAccount")
     public Manager createAccount(@RequestBody Manager manager){
         while(getManagerById(manager.getId()).isPresent()) {
-            manager.setId(manager.getId()+1);
+            manager.setId(manager.getId()
+                    +1);
         }
 
         return repo.save(manager);

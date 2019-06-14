@@ -70,6 +70,5 @@ public class AccountController {
         );
 
        repo.delete(account);
-
     }
 }

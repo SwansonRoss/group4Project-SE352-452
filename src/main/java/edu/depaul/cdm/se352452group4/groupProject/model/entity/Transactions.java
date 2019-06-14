@@ -13,11 +13,11 @@ public class Transactions implements Serializable {
 
     @Id
     @GeneratedValue
-    private Long transactionId; // PK.
-    private Double transactionsTotal; // small money
-    private Integer totalItems;
+    private Integer transaction_Id; // PK.
+    private Double transactions_Total; // small money
+    private Integer total_Items;
 
     @Temporal(TemporalType.DATE)
-    private Date orderDate;
+    private Date order_Date;
 
 }

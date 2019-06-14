@@ -30,4 +30,20 @@ public class Account implements Serializable {
     private String email;
 
     private String password;
+
+    public int getAccount_Id() {
+        return this.account_Id;
+    }
+
+    public void setAccount_Id(int i) {
+        this.account_Id = i;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String p) {
+        this.password = p;
+    }
 }
