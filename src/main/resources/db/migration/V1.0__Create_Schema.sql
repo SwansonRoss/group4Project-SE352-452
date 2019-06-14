@@ -21,6 +21,7 @@ CREATE TABLE Images (
     item_Id INTEGER, //FK
     image BLOB,
 
+
     PRIMARY KEY (item_Id)
 );
 
@@ -35,8 +36,8 @@ CREATE TABLE Inventory_Items (
     id LONG,            // PK
     size VARCHAR2(255),         // FK
     itemType VARCHAR2(255),     // FK
-    image_Id INTEGER,      // FK
-    inventoryCategory INTEGER, //FK
+    image_Id VARCHAR2(255),      // FK
+    inventoryCategory VARCHAR2(255), //FK
     quantity INTEGER,
     price DOUBLE,
     itemName VARCHAR2(55),

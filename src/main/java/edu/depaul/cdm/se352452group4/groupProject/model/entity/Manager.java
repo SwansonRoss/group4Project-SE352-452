@@ -25,4 +25,20 @@ public class Manager implements Serializable {
     private String email;
 
     private String password;
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String p) {
+        this.password = p;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long i) {
+        this.id = i;
+    }
 }

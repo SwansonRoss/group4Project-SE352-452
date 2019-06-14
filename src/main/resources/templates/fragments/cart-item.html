@@ -1,13 +1,13 @@
 
-    <div class="cart-item">
-        <h4 th:text=${itemName}></h4>
+    <div class="cart-item" th:each="item : ${items}">
+        <h4 th:text="${item.getItemName()}"></h4>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <img width="100" src="http://3.bp.blogspot.com/-c_xcQb-uG44/VazuWruXvGI/AAAAAAAAB-I/MojGhTH4CvQ/s1600/AB9577_01_laydown.jpg"/>
+                <img width="100" th:src="${item.getImageId()}"/>
             </div>
             <div class="col-md-4 mb-3" style="text-align: right;">
-                <p>QTY: ${item.quantity}</p> <!-- TODO: Quantity will not be a part of item -->
-                <p>${item.price}</p>
+                <!-- <p>QTY: ${item.quantity}</p> TODO: Quantity will not be a part of item -->
+                <p th:text="${item.getPrice()}"></p>
             </div>
         </div>
     </div>
