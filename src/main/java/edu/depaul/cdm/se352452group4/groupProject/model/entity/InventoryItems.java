@@ -9,23 +9,26 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Inventory_Items")
 public class InventoryItems implements Serializable {
-    private final long serialVersionUID = 2L;
+    //private final long serialVersionUID = 2L;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;   // PK
 
     private String size;    // FK
 
-    @Column(name = "item_type")
+    @Column(name = "itemtype")
     private String itemType;    //FK
 
     @Column(name = "image_id")
     private String imageId;     //FK
 
-    @Column(name = "inventory_category")
+    @Column(name = "inventorycategory")
     private String inventoryCategory; //FK
 
     private Integer quantity;
 
     private Double price;
+
+    @Column(name = "itemname")
+    private String itemName;
 }
