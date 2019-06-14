@@ -1,6 +1,5 @@
 package edu.depaul.cdm.se352452group4.groupProject.controller;
 
-import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.InventoryItems;
 import edu.depaul.cdm.se352452group4.groupProject.model.entity.Transactions;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.InventoryItemsRepository;
@@ -13,18 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.text.html.Option;
-import java.sql.SQLDataException;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Date;
 
-//@RestController
-//@RequestMapping(path = "/accounts")
 @Controller
 public class TransactionController implements WebMvcConfigurer {
 
@@ -37,22 +30,42 @@ public class TransactionController implements WebMvcConfigurer {
         this.IIrepo =iRepo;
     }
 
+    @PostMapping("/clear")
+    private String clearCart(HttpServletRequest request, HttpServletResponse response){
+        Cookie[] checkCookies = request.getCookies();
+        if(checkCookies != null) {
+            for (Cookie c : checkCookies) {
+                c.setMaxAge(0);
+                c.setPath("/");
+                response.addCookie(c);
+            }
+        }
+        return "checkout/index";
+    }
+
     @GetMapping("/checkout")
     public String checkoutRoute(Model model, HttpServletRequest request){
         List<Long> itemIds = getShoppingCartIds(request);
         Double subtotal = 0.0;
         if(itemIds == null){return  "checkout/index";}
 
-        List<InventoryItems> cartItems = new ArrayList<>();
-        for(Long itemId : itemIds){
-            InventoryItems item = IIrepo.findById(itemId).get();
-            subtotal += item.getPrice();
-            cartItems.add(item);
+        try {
+            List<InventoryItems> cartItems = new ArrayList<>();
+            for (Long itemId : itemIds) {
+                InventoryItems item = IIrepo.findById(itemId).get();
+                subtotal += item.getPrice();
+                cartItems.add(item);
+            }
 
+            model.addAttribute("subtotal", subtotal);
+            model.addAttribute("items", cartItems);
+
+        } catch (IllegalArgumentException e) {
+            e.getStackTrace();
+        } finally {
+            itemIds.clear();
         }
 
-        model.addAttribute("subtotal", subtotal);
-        model.addAttribute("items", cartItems);
         return  "checkout/index";
     }
 
@@ -80,8 +93,6 @@ public class TransactionController implements WebMvcConfigurer {
                 System.out.println(i.getItemName());
             }
 
-
-
 //            while (getTransactionsById(t.getTransaction_Id()).isPresent()) {
 //                t.setTransaction_Id(t.getTransaction_Id() + 1);
 //            }
@@ -102,8 +113,6 @@ public class TransactionController implements WebMvcConfigurer {
             t.setTransactions_Total(subtotal);
 
             transRepo.save(t);
-            clearCart(request);
-
             return "redirect:/confirmation";
         }
         return "redirect:/checkout";
@@ -115,10 +124,9 @@ public class TransactionController implements WebMvcConfigurer {
         return transRepo.findById(accountId);
     }
 
-
     @GetMapping("/confirmation")
     public String checkoutRoute(Model model){
-        return "confirmation/index";
+        return "success";
     }
 
     private List<Long> getShoppingCartIds(HttpServletRequest request){
@@ -138,19 +146,6 @@ public class TransactionController implements WebMvcConfigurer {
         }
         return itemIds;
 
-    }
-
-    private void clearCart(HttpServletRequest request){
-        Cookie[] checkCookies = request.getCookies();
-        List<Long> itemIds = new ArrayList<>();
-        if(checkCookies != null) {
-            for (Cookie c : checkCookies) {
-                //If "cart_items" cookie exists, splits to create a list
-                if (c.getName().equals("cart_items")) {
-                    Cookie blank = new Cookie("cart_items", "");
-                }
-            }
-        }
     }
 
     private boolean validateCard(){

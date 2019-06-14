@@ -65,7 +65,9 @@ CREATE TABLE Manager (
     first_Name VARCHAR2(255),
     last_Name VARCHAR2(255),
     email   VARCHAR2(255),
-    password VARCHAR2(255)
+    password VARCHAR2(255),
+
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE Transactions (

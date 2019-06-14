@@ -2,7 +2,6 @@ package edu.depaul.cdm.se352452group4.groupProject.model.entity;
 
 import lombok.Data;
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Data
@@ -10,12 +9,9 @@ import java.io.Serializable;
 @Table(name = "manager")
 public class Manager implements Serializable {
 
-    private final long serialVersionUID = 2L;
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(max = 5)
     private String code;
 
     private String firstName;
@@ -25,20 +21,4 @@ public class Manager implements Serializable {
     private String email;
 
     private String password;
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String p) {
-        this.password = p;
-    }
-
-    public long getId() {
-        return this.id;
-    }
-
-    public void setId(long i) {
-        this.id = i;
-    }
 }

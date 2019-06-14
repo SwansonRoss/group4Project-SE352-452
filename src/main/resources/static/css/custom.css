@@ -3,10 +3,6 @@ h1.blackLink {
     color: black;
 }
 
-h1.center {
-    color: #1c7430;
-}
-
 li.listNav {
     float: left;
     padding: 5px;
@@ -17,5 +13,6 @@ ul.ulistNav {
     list-style-type: none;
 
 }
+
 
 

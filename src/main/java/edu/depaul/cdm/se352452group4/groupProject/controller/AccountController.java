@@ -5,8 +5,13 @@ import edu.depaul.cdm.se352452group4.groupProject.model.entity.Account;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.AccountRepository;
 import edu.depaul.cdm.se352452group4.groupProject.model.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Optional;
 
 @RestController
@@ -55,24 +60,37 @@ public class AccountController {
         return account;
     }
 
+    @GetMapping("/")
+    public String welcome() {
+        return "/manage";
+    }
+
     @PostMapping("/loginForm")
-    public String login (String email, String password) {
+    public String login (String email, String password, HttpServletResponse response, HttpServletRequest request) throws IOException  {
         Account a = new Account();
         a.setEmail(email);
         a.setPassword(password);
 
-        if(repo.findByEmail(a.getEmail()) == null && repo.findByPassword(a.getPassword()) == null) {
-            return "login failed";
-        }
-
-        if(repo.findByEmail(a.getEmail()) == null && repo.findByPassword(a.getPassword()) == null) {
-            return "login failed";
-        }
-
         if(mr.findByEmail(email) != null) {
-            return "/main";
+           response.sendRedirect(request.getContextPath() + "/manage");
+           return "yes manager";
         }
-        return "login success!";
+
+        if(repo.findByEmail(a.getEmail()) != null && repo.findByPassword(a.getPassword()) != null) {
+            response.sendRedirect(request.getContextPath() + "/");
+            return "found account";
+        }
+
+        if(repo.findByEmail(a.getEmail()) != null && repo.findByPassword(a.getPassword()) == null) {
+            return "fail by 80";
+        }
+
+        if(repo.findByEmail(a.getEmail()) == null && repo.findByPassword(a.getPassword()) == null) {
+            return "fail by 85";
+        }
+
+        return "ERROR 911";
+
     }
 
     @GetMapping("/user/{accountId}/delete")
