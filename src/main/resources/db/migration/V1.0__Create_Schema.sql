@@ -35,8 +35,8 @@ CREATE TABLE Inventory_Items (
     id LONG,            // PK
     size VARCHAR2(255),         // FK
     itemType VARCHAR2(255),     // FK
-    image_Id VARCHAR2(255),      // FK
-    inventoryCategory VARCHAR2(255), //FK
+    image_Id INTEGER,      // FK
+    inventoryCategory INTEGER, //FK
     quantity INTEGER,
     price DOUBLE,
     itemName VARCHAR2(55),
