@@ -71,66 +71,7 @@ INSERT INTO Images VALUES( 00001, '00001.png' );
 INSERT INTO Inventory_Items VALUES( 1111111,'XS','shirt', 00001, 2, 50, 10.00, 'TyeDy');
 
 
-CREATE TABLE Customer_Shipments (
-                                    shipping_Id Integer  AUTO_INCREMENT NOT NULL,
-                                    transaction_Id VARCHAR(50) NOT NULL,
-                                    item_Id VARCHAR(50) NOT NULL,
-                                    quantity VARCHAR(255) NOT NULL,
 
-                                    PRIMARY KEY (shipping_Id)
-);
-
-
-
-
-
-
-
-
-CREATE TABLE Item_Purchased (
-                                transaction_Id LONG, //PK, FK
-                                item_Id LONG,    //FK
-                                price_Purchased DOUBLE,
-
-                                PRIMARY KEY (transaction_Id)
-);
-
-CREATE TABLE Manager (
-                         id LONG,
-                         code VARCHAR2(255),
-                         first_Name VARCHAR2(255),
-                         last_Name VARCHAR2(255),
-                         email   VARCHAR2(255),
-                         password VARCHAR2(255)
-);
-
-CREATE TABLE Transactions (
-                              transaction_Id LONG, // PK.
-                              transactions_Total DOUBLE, // small money
-                              total_Items INTEGER,
-                              order_Date DATE,
-
-                              PRIMARY KEY(transaction_Id)
-);
-
-CREATE TABLE Purchase_History (
-                                  purchase_Id LONG,
-                                  transaction_Id LONG,
-                                  item_ID LONG,
-
-                                  PRIMARY KEY(purchase_Id),
-                                  FOREIGN KEY (purchase_Id) REFERENCES Account(account_Id),
-                                  FOREIGN KEY (transaction_Id) references  Transactions(transaction_Id)
-);
-
-CREATE TABLE Vendor (
-                        vendor_ID LONG,
-                        country VARCHAR2(255),
-                        city VARCHAR2(255),
-                        state VARCHAR2(255),
-
-                        PRIMARY KEY(vendor_ID)
-);
 
 
 
