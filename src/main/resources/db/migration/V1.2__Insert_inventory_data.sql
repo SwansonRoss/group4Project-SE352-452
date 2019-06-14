@@ -25,10 +25,44 @@ INSERT INTO INVENTORY_TYPE VALUES(06, 'jewelry');
     PRIMARY KEY (id));
  */
 
-INSERT INTO INVENTORY_ITEMS VALUES(01, 'small', 'shirt', '', 'women', 15, 25.00, 'Womens Test shirt');
-INSERT INTO INVENTORY_ITEMS VALUES(02, 'small', 'shirt', '', 'men', 15, 25.00, 'Mens test shirt');
-INSERT INTO INVENTORY_ITEMS VALUES(03, '12', 'shoes', '', 'accessory', 15, 25.00, 'Test Accessory');
-INSERT INTO INVENTORY_ITEMS VALUES(04, 'small', 'shirt', '', 'sale', 15, 25.00, 'Sale test shirt');
+/* Womens T-Shirts*/
+INSERT INTO INVENTORY_ITEMS VALUES(01, 'extra small', 'shirt', '', 'women', 15, 25.00, 'Womens Test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(02, 'small', 'shirt', '', 'women', 15, 25.00, 'Womens Test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(03, 'medium', 'shirt', '', 'women', 15, 25.00, 'Womens Test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(04, 'large', 'shirt', '', 'women', 15, 25.00, 'Womens Test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(05, 'extra large', 'shirt', '', 'women', 15, 25.00, 'Womens Test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(06, 'extra extra large', 'shirt', '', 'women', 15, 25.00, 'Womens Test shirt');
+
+
+INSERT INTO INVENTORY_ITEMS VALUES(07, 'extra small', 'shirt', '', 'women', 15, 25.00, 'Womens T2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(08, 'small', 'shirt', '', 'women', 15, 25.00, 'Womens T2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(09, 'medium', 'shirt', '', 'women', 15, 25.00, 'Womens T2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(10, 'large', 'shirt', '', 'women', 15, 25.00, 'Womens T2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(11, 'extra large', 'shirt', '', 'women', 15, 25.00, 'Womens T2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(12, 'extra extra large', 'shirt', '', 'women', 15, 25.00, 'Womens T2 shirt');
+
+/* Mens T-Shirts*/
+INSERT INTO INVENTORY_ITEMS VALUES(13, 'small', 'shirt', '', 'men', 15, 25.00, 'Mens test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(14, 'small', 'shirt', '', 'women', 15, 25.00, 'Mens test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(15, 'medium', 'shirt', '', 'women', 15, 25.00, 'Mens test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(16, 'large', 'shirt', '', 'women', 15, 25.00, 'Mens test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(17, 'extra large', 'shirt', '', 'women', 15, 25.00, 'Mens test shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(18, 'extra extra large', 'shirt', '', 'women', 15, 25.00, 'Mens test shirt');
+
+INSERT INTO INVENTORY_ITEMS VALUES(19, 'small', 'shirt', '', 'men', 15, 25.00, 'Mens t2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(20, 'small', 'shirt', '', 'women', 15, 25.00, 'Mens t2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(21, 'medium', 'shirt', '', 'women', 15, 25.00, 'Mens t2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(22, 'large', 'shirt', '', 'women', 15, 25.00, 'Mens t2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(23, 'extra large', 'shirt', '', 'women', 15, 25.00, 'Mens t2 shirt');
+INSERT INTO INVENTORY_ITEMS VALUES(24, 'extra extra large', 'shirt', '', 'women', 15, 25.00, 'Mens t2 shirt');
+
+
+
+
+
+INSERT INTO INVENTORY_ITEMS VALUES(25, '12', 'shoes', '', 'accessory', 15, 25.00, 'Test Accessory');
+
+INSERT INTO INVENTORY_ITEMS VALUES(26, 'small', 'shirt', '', 'sale', 15, 25.00, 'Sale test shirt');
 
 /*Size Chart*/
 /*****************************************
