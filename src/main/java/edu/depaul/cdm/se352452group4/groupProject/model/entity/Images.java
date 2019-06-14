@@ -13,7 +13,6 @@ public class Images implements Serializable {
 
     @Id
     @GeneratedValue
-    private Long transactionId; // PK, FK
-    private Long itemId; //FK
-    private Double pricePurchased;
+    private Long itemId; //FK, PK
+    private String image;
 }

@@ -16,7 +16,8 @@
         <div class="row">
             <div class="col-md-8">
                 <h3>Check out form</h3>
-                <form class="needs-validation" id="checkout-form">
+                <form action="#" th:action="@{/checkout}" name="transaction" method="post" class="needs-validation">
+                    <input type="hidden" name="items" th:value="${items}">
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <label for="cc-number">Credit card number</label>
@@ -123,35 +124,17 @@
             <!-- Put fragment here -->
             <div class="col-md-4" style="border-left: 3px solid #0f0f0f">
                 <h3>Your cart</h3>
-                <h3>$87.50</h3>
+                <h3 th:text="${subtotal}"></h3>
                 <div th:replace="fragments/cart-item"></div>
-                <div class="price-section">
-                    <div style="border-bottom: 1px solid #3f3f3f">
-                        <div class="row">
-                            <div class="col-md-6" style="text-align: left">Addidas crewneck</div>
-                            <div class="col-md-4" style="text-align: right">$75.00</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6" style="text-align: left">Tax - 10%</div>
-                            <div class="col-md-4" style="text-align: right">$7.50</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6" style="text-align: left">Shipping</div>
-                            <div class="col-md-4" style="text-align: right">$5.00</div>
-                        </div>
-                    </div>
                     <div>
                         <div class="row">
-                            <div class="col-md-6" style="text-align: left">subtotal</div><div class="col-md-4" style="text-align: right">$87.50</div>
+                            <div class="col-md-6" style="text-align: left">subtotal</div><div class="col-md-4" style="text-align: right">$<span th:text="${subtotal}"></span></div>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>
-    <div class="footer">
-        <h1>[GLOBAL FOOTER GOES HERE]</h1>
     </div>
 </div>
 </body>

@@ -6,6 +6,7 @@
             </div>
             <div class="col-md-4 mb-3" style="text-align: right;">
                 <p th:text="${item.getPrice()}"></p>
+                <form action="#" th:action="@{/men}" name="AddToCart" method="post">
                 <select name="size">
                     <option value="XXL">XXL</option>
                     <option value="XL">XL</option>
@@ -13,8 +14,10 @@
                     <option value="M">M</option>
                     <option value="S">S</option>
                     <option value="XS">XS</option>
-                </select>
-                <button type="button">ADD TO CART</button>
+                </select> <!-- th:action="@{/${item.getInventoryCateory()}}  -->
+                    <input name="id" type="hidden" th:value="${item.getId()}">
+                    <input type="submit" value="Add to Cart"/>
+                </form>
             </div>
         </div>
  </div>
