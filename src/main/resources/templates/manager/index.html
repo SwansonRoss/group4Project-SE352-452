@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Checkout | FreshThreads</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/custom.css">
 </head>
 <body>
 <div class="container">
+    <div th:replace="/fragments/header"></div>
     <div class="header">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="index.html"> <h1 class="blackLink" align="center">FreshThreads</h1> </a>
@@ -31,92 +30,91 @@
         <div style="padding-bottom: 20px">
             <h2><em>Manage inventory</em></h2>
         </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <h3>White Shirt</h3>
-                </div>
-                <div class="row" style="border-bottom: 3px solid #0f0f0f; padding-bottom: 20px;">
-                    <div class="col-md-3 mb-3">
-                        <img src="http://localhost:8080/womens/whiteShirt.png" width="150" />
-                    </div>
-                    <div class="col-md-2 mb-3">
-                        <p>Price: $75.00</p>
-                        <p>Sold: 22</p>
-                        <p>Stock: 28</p>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="update-stock">Add new stock</label>
-                        <input type="text" class="form-control" id="update-stock" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Number of additional stock needed
-                        </div>
-                        <button>Update Stock</button>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="update-price">Update Price</label>
-                        <input type="text" class="form-control" id="update-price" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Price needed
-                        </div>
-                        <button>Update Price</button>
-                    </div>
-                </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md-8">-->
+<!--                <div class="row">-->
+<!--                    <h3>White Shirt</h3>-->
+<!--                </div>-->
+<!--                <div class="row" style="border-bottom: 3px solid #0f0f0f; padding-bottom: 20px;">-->
+<!--                    <div class="col-md-3 mb-3">-->
+<!--                        <img src="http://localhost:8080/womens/whiteShirt.png" width="150" />-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2 mb-3">-->
+<!--                        <p>Price: $75.00</p>-->
+<!--                        <p>Sold: 22</p>-->
+<!--                        <p>Stock: 28</p>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-3 mb-3">-->
+<!--                        <label for="update-stock">Add new stock</label>-->
+<!--                        <input type="text" class="form-control" id="update-stock" placeholder="" value="" required>-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            Number of additional stock needed-->
+<!--                        </div>-->
+<!--                        <button>Update Stock</button>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-3 mb-3">-->
+<!--                        <label for="update-price">Update Price</label>-->
+<!--                        <input type="text" class="form-control" id="update-price" placeholder="" value="" required>-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            Price needed-->
+<!--                        </div>-->
+<!--                        <button>Update Price</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-            </div>
+<!--            </div>-->
 
-        </div>
+<!--        </div>-->
 
+<!--        <div class="row">-->
+<!--            <div class="col-md-8">-->
+<!--                <div class="row">-->
+<!--                    <h3>Add new item</h3>-->
+<!--                </div>-->
+<!--                <div class="row" style="border-bottom: 3px solid #0f0f0f; padding-bottom: 20px;">-->
+<!--                    <div class="col-md-8 mb-3">-->
+<!--                        <label for="new-item-name">Item name</label>-->
+<!--                        <input type="text" class="form-control" id="new-item-name" placeholder="" value="" required>-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            Name of items needed-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-8 mb-3">-->
+<!--                        <label for="new-item-category">Item category</label>-->
+<!--                        <input type="text" class="form-control" id="new-item-category" placeholder="" value="" required>-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            category of items needed-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-8 mb-3">-->
+<!--                        <label for="new-item-description">Item Description</label>-->
+<!--                        <input type="text" class="form-control" id="new-item-description" placeholder="" value="" required>-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            description of items needed-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-8 mb-3">-->
+<!--                        <label for="new-item-price">Item Price</label>-->
+<!--                        <input type="text" class="form-control" id="new-item-price" placeholder="" value="" required>-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            price of items needed-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-8 mb-3">-->
+<!--                        <label for="new-item-stock">Item Stock</label>-->
+<!--                        <input type="text" class="form-control" id="new-item-stock" placeholder="" value="" required>-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            Number of items needed-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-8 mb-3">-->
+<!--                        <button>Add Item</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <h3>Add new item</h3>
-                </div>
-                <div class="row" style="border-bottom: 3px solid #0f0f0f; padding-bottom: 20px;">
-                    <div class="col-md-8 mb-3">
-                        <label for="new-item-name">Item name</label>
-                        <input type="text" class="form-control" id="new-item-name" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Name of items needed
-                        </div>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <label for="new-item-category">Item category</label>
-                        <input type="text" class="form-control" id="new-item-category" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            category of items needed
-                        </div>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <label for="new-item-description">Item Description</label>
-                        <input type="text" class="form-control" id="new-item-description" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            description of items needed
-                        </div>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <label for="new-item-price">Item Price</label>
-                        <input type="text" class="form-control" id="new-item-price" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            price of items needed
-                        </div>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <label for="new-item-stock">Item Stock</label>
-                        <input type="text" class="form-control" id="new-item-stock" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Number of items needed
-                        </div>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                        <button>Add Item</button>
-                    </div>
-                </div>
+<!--            </div>-->
 
-            </div>
-
-        </div>
+<!--        </div>-->
 
     </div>
 </div>

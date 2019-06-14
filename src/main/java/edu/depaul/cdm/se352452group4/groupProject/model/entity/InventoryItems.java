@@ -28,7 +28,6 @@ public class InventoryItems implements Serializable {
     private Integer quantity;
 
     private Double price;
-
     @Column(name = "itemname")
     private String itemName;
 }

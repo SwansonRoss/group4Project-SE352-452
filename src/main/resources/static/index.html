@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>GUCCl Official Site | Explore the World of FreshThreads - </title>
-
-    <!--bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <div class="container">
 <div th:replace="fragments/header"></div>
 
 <br><br><br>
-<figure class="figure">
-    <img src="img/fresh.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-    <div align="center">
-        <!--<figcaption class="figure-caption">Made out of Lion skin..</figcaption>-->
+
+    <img src="img/fresh.jpg" class="figure-img img-fluid rounded" alt="FreshThead">
+    <div style="text-align: center">
+        <p> PRE FALL 2019 </p>
+        <h1> TOWARDS SUMMER  </h1>
+        <a href="/men"><button> SHOP MEN </button></a>
+        <a href="/women"><button> SHOP WOMEN </button></a>
     </div>
-</figure>
 
-<p  align="center"> PRE FALL 2019 </p>
-<h1 align="center"> TOWARDS SUMMER  </h1>
+    <div th:replace="fragments/footer"></div>
+</div>
 
-<div align="center">
-    <a href="men/mens-suits.html"><button> SHOP MEN </button></a>
-    <a href="womens/womens.html"><button> SHOP WOMEN </button></a>
-</div>
-</div>
 </body>
 </html>

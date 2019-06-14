@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add into Inventory</title>
+    </head>
+    <body>
+    <div class="container">
+    <div th:replace="/fragments/header"></div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <h3>Add new item</h3>
+                </div>
+                <div class="row" style="border-bottom: 3px solid #0f0f0f; padding-bottom: 20px;">
+                    <div class="col-md-8 mb-3">
+                        <label for="new-item-name">Item name</label>
+                        <input type="text" class="form-control" id="new-item-name" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Name of items needed
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="new-item-category">Item category</label>
+                        <input type="text" class="form-control" id="new-item-category" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            category of items needed
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="new-item-description">Item Description</label>
+                        <input type="text" class="form-control" id="new-item-description" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            description of items needed
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="new-item-price">Item Price</label>
+                        <input type="text" class="form-control" id="new-item-price" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            price of items needed
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="new-item-stock">Item Stock</label>
+                        <input type="text" class="form-control" id="new-item-stock" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Number of items needed
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <button>Add Item</button>
+                    </div>
+                </div>
+                <div style="padding-top: 10px">
+                <a href="/manage"><button>Dashboard</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

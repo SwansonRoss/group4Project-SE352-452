@@ -1,20 +1,21 @@
- <div class="store-item col-md-6" th:each="item : ${items}">
+<div class="store-item col-md-6" th:each="item : ${items}" xmlns:th="http://www.thymeleaf.org">
         <h4 th:text="${item.getItemName()}"></h4>
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <img width="250" th:src="${item.getImageId()}"/>
-            </div>
+<!--            <div class="col-md-6 mb-3">-->
+<!--                <img width="250" th:src="${item.getImagePath()}"/>-->
+<!--            </div>-->
             <div class="col-md-4 mb-3" style="text-align: right;">
                 <p th:text="${item.getPrice()}"></p>
                 <form action="#" th:action="@{/men}" name="AddToCart" method="post">
-                <select name="size">
-                    <option value="XXL">XXL</option>
-                    <option value="XL">XL</option>
-                    <option value="L">L</option>
-                    <option value="M">M</option>
-                    <option value="S">S</option>
-                    <option value="XS">XS</option>
-                </select> <!-- th:action="@{/${item.getInventoryCateory()}}  -->
+                    <label for="size"> size </label>
+                    <select id="size" name="size">
+                        <option value="XXL">XXL</option>
+                        <option value="XL">XL</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="S">S</option>
+                        <option value="XS">XS</option>
+                    </select> <!-- th:action="@{/${item.getInventoryCateory()}}  -->
                     <input name="id" type="hidden" th:value="${item.getId()}">
                     <input type="submit" value="Add to Cart"/>
                 </form>
