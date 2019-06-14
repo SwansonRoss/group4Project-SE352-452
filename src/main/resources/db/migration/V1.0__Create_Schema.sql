@@ -95,3 +95,10 @@ CREATE TABLE Vendor (
 
     PRIMARY KEY(vendor_ID)
 );
+
+CREATE TABLE Size_Chart(
+    size_ID VARCHAR2(3),
+    size_name VARCHAR(20),
+
+    PRIMARY KEY (size_ID)
+);
